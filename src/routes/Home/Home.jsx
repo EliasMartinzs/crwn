@@ -1,7 +1,7 @@
-import CategoryItem from '../../components/CategoryItem/CategoryItem';
+import DirectoryItem from '../../components/DirectoryItem/DirectoryItem';
 
 const Home = () => {
-  return <CategoryItem />;
+  return <DirectoryItem />;
 };
 
 export default Home;

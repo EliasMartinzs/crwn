@@ -1,4 +1,4 @@
-import './CategotyItem.scss';
+import './DirectoryItem.scss';
 
 const categories = [
   {
@@ -28,9 +28,9 @@ const categories = [
   },
 ];
 
-const CategoryItem = () => {
+const DirectoryItem = () => {
   return (
-    <div className="categories-container">
+    <div className="categories-container-cate">
       {categories.map(category => (
         <div className="category-container" key={category.id}>
           <div
@@ -38,9 +38,9 @@ const CategoryItem = () => {
             loading="lazy"
             style={{ backgroundImage: `url(${category.imageUrl})` }}
           />
-          <div className="category-body-container">
+          <div className="category-body-container-item">
             <h2>{category.title}</h2>
-            <p>shop now</p>
+            <p>Shop Now</p>
           </div>
         </div>
       ))}
@@ -48,4 +48,4 @@ const CategoryItem = () => {
   );
 };
 
-export default CategoryItem;
+export default DirectoryItem;

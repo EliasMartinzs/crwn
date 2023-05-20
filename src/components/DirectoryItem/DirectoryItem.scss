@@ -1,4 +1,4 @@
-.categories-container {
+.categories-container-cate {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -24,7 +24,7 @@
       transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
     }
 
-    & .category-body-container {
+    & .category-body-container-item {
       opacity: 0.9;
     }
   }
@@ -48,7 +48,7 @@
     background-position: center;
   }
 
-  .category-body-container {
+  .category-body-container-item {
     height: 90px;
     padding: 0 25px;
     display: flex;
