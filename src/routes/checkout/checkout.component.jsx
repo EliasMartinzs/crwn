@@ -1,6 +1,5 @@
-import { useContext } from 'react';
-
-import { CartContext } from '../../contexts/cart.context';
+import { useMemo } from 'react';
+import { useSelector } from 'react-redux';
 
 import CheckoutItem from '../../components/checkout-item/checkout-item.component';
 
@@ -10,9 +9,14 @@ import {
   HeaderBlock,
   Total,
 } from './checkout.styles';
+import { selectCartItems } from '../../store/cart/cart.selector';
 
 const Checkout = () => {
-  const { cartItems, cartTotal } = useContext(CartContext);
+  const cartItems = useSelector(selectCartItems);
+
+  const totalPriceFromCart = useMemo(() => {
+    return cartItems.reduce((acc, curr) => acc + curr.quantity * curr.price, 0);
+  }, [cartItems]);
 
   return (
     <CheckoutContainer>
@@ -33,10 +37,10 @@ const Checkout = () => {
           <span>Remove</span>
         </HeaderBlock>
       </CheckoutHeader>
-      {cartItems.map((cartItem) => (
+      {cartItems.map(cartItem => (
         <CheckoutItem key={cartItem.id} cartItem={cartItem} />
       ))}
-      <Total>Total: ${cartTotal}</Total>
+      <Total>Total: ${totalPriceFromCart.toFixed(2)}</Total>
     </CheckoutContainer>
   );
 };
